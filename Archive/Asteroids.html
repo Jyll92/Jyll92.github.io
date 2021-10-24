@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jyll Ataru Web Design" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <title>Jyll Ataru: Asteroids</title>
+    <link rel="shortcut icon" type="image/svg+xml" href="./Images/planet.svg" />
+  </head>
+  <body>
+    <div class="main">
+    <img id="background" src="./Images/aldebaran-unsplash.jpg" alt="Space Background with Stars">
+    <nav class="navBar">
+      <img src="./Images/jlogo.svg" alt="Jyll Ataru Web Dev Logo" />
+      <div class="navIcon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <ul class="navMenu">
+        <li><a href="https://www.JyllAtaru.com">Home</a></li>
+        <li><a href="https://www.JyllAtaru.com/About">About</a></li>
+        <li><a href="https://www.JyllAtaru.com/Projects"">Projects</a></li>
+        <li><a href="https://www.JyllAtaru.com/Contact">Contact</a></li>
+      </ul>
+    </nav>
+   <div class="gameOuter">
+    <h1> Asteroids</h1>
+    <div class="game">
+      <canvas id="gameCanvas" width="900" height="600">
+      </canvas>  
+      <button class="mute" onclick="Mute();"><i class="fas fa-volume-up"></i><i class="fas fa-volume-mute hidden"></i></button>
+      <button class="playAgain hidden" onclick="newGame();">Play Again?</button>
+      <h3 class="aiOFF">// Weapons AI: Disabled //</h3>
+      <h3 class="aiON hidden">// Weapons AI: ENGAGED !! //</h3>
+    </div>
+    
+    
+    <div class="gameInstr">Use Arrow Keys to Move and Space Bar to Fire
+      <br>
+      Down Arrow to Toggle Weapons AI
+    </div>
+  </div>
+</div>
+<script src="./neural-network.js"></script>
+<script>
+
+  // Spacebar jumps you to further down on page... lets fix that..
+  window.addEventListener('keydown', function(e) {
+  if(e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+  if(e.keyCode == 37 && e.target == document.body) {
+    e.preventDefault();
+  }
+  if(e.keyCode == 38 && e.target == document.body) {
+    e.preventDefault();
+  }
+  if(e.keyCode == 39 && e.target == document.body) {
+    e.preventDefault();
+  }
+  if(e.keyCode == 40 && e.target == document.body) {
+    e.preventDefault();
+  }
+});
+const muteBtn = document.querySelector(".mute");
+const soundIcon = document.querySelector(".fa-volume-up");
+const muteIcon = document.querySelector(".fa-volume-mute");
+muteBtn.addEventListener("click", () => {
+        soundIcon.classList.toggle("hidden");
+        muteIcon.classList.toggle("hidden");
+      });
+</script>
+    <script src="./ast.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
